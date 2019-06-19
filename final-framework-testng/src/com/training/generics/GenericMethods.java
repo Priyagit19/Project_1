@@ -27,7 +27,7 @@ public class GenericMethods {
 	 * @see type is id, name, xpath, text, partialtext
 	 * @see locator will be the element to be found on DOM 
 	 * @return  WebElement
-	 * this method shall give provided it has single enty in the DOM
+	 * this method shall give provided it has single entry in the DOM
 	 */
 	public WebElement getElement(String locator, String type){
 		WebElement element  = null;
@@ -48,12 +48,10 @@ public class GenericMethods {
 		}	
 		System.out.println("Sorry Element not found, so not returned...");
 		return null;
-
-
 	}
 	
 	
-	// shall give if it has multiple entries as a list in DOM 
+	// Shall give if it has multiple entries as a list in DOM 
 	
 	public List<WebElement> getElementsAsList(String locator, String type){
 		type = type.toLowerCase();
@@ -69,8 +67,8 @@ public class GenericMethods {
 		return null;
 	}
 	
-	// return true if element exists 
-	// this method works for us when we have more than 1 element 
+	// Return true if element exists 
+	// This method works for us when we have more than 1 element 
 	// to be found for 
 	public boolean isElementFound(String locator, String type){
 		return getElementsAsList(locator, type).size()>0;
