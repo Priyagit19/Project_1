@@ -46,25 +46,22 @@ public class Addclasses {
 	}
 	
 	@Test
-	public void validLoginTest() {
-		
-	
+	public void validLoginTest() {		
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn(); 
 		screenShot.captureScreenShot("Login");
 		AddClassesPOM.classesclick();
-		AddClassesPOM.AddClassesPOM();
-		
-		screenShot.captureScreenShot("AddClasses");		
-		
+		AddClassesPOM.AddClassesPOM();		
+		screenShot.captureScreenShot("AddClasses");			
 		AddClassesPOM.studentname("Demo");
 		AddClassesPOM.Description_classes("Demo");
-		AddClassesPOM.openclassselect();
+		AddClassesPOM.openclass();
 		screenShot.captureScreenShot("Selectopen");	
+		AddClassesPOM.opendropdown();
+		//screenShot.captureScreenShot("Added");	
 		AddClassesPOM.usergroup_submit();
-		screenShot.captureScreenShot("Added");		
+		screenShot.captureScreenShot("Final");	
+		
 }
-
 }
-

@@ -14,9 +14,6 @@ private WebDriver driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	
-	
-
 	@FindBy(xpath="//a[@href=\"usergroups.php\"]")
 	private WebElement classesclick;
 
@@ -30,14 +27,12 @@ private WebDriver driver;
 
 	@FindBy(id="usergroup_description")
 	private WebElement Description_classes;
-	
-	
-	
+		
 	@FindBy(xpath="//div[@class='filter-option-inner-inner']")
 	private WebElement openclass;
-	
-	
-	
+		
+	@FindBy(xpath="//span[@class='text']")
+	private WebElement opendropdown;      ;
 	
 	@FindBy(xpath="//div[@class='dropdown-menu open']")
 	private WebElement openclassselect;
@@ -60,35 +55,30 @@ private WebDriver driver;
 	}	
 	
 	public void studentname(String studentname) {
-	this.studentname.clear(); 
-	this.studentname.sendKeys(studentname); 
-}	
+		this.studentname.clear(); 
+		this.studentname.sendKeys(studentname); 
+	}	
 	
 	public void Description_classes(String Description_classes) {
-	this.Description_classes.clear(); 
-	this.Description_classes.sendKeys(Description_classes); 
-}
+		this.Description_classes.clear(); 
+		this.Description_classes.sendKeys(Description_classes); 
+	}
 	
 	public void openclass() {
 		this.openclass.click(); 
 	}	
 	
-	
 	public void openclassselect() {
 		this.openclassselect.click(); 
-	}	
-	
-	
-	
+	}		
 	
 	public void usergroup_submit() {
 		this.usergroup_submit.click(); 
 	}	
 	
+	public void opendropdown() {
+		this.opendropdown.click(); 
+	}	
+	
 
 }
-	
-	
-
-	
-
