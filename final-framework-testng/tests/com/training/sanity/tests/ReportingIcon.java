@@ -1,5 +1,4 @@
 package com.training.sanity.tests;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -11,17 +10,18 @@ import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
 import com.training.pom.LoginPOM;
-import com.training.pom.SigupPOM;
+import com.training.pom.ReportingPOM;
 import com.training.pom.AddClassesPOM;
+import com.training.pom.AssignmentselectPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class Addclasses {
+public class ReportingIcon {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
-	//private SigupPOM SigupPOM;
-	private AddClassesPOM AddClassesPOM;
+	private AssignmentselectPOM AssignmentselectPOM;
+	private ReportingPOM ReportingPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -32,36 +32,35 @@ public class Addclasses {
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver); 
-		AddClassesPOM = new AddClassesPOM(driver);		
+		AssignmentselectPOM = new AssignmentselectPOM(driver);	
+		ReportingPOM = new ReportingPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
-		screenShot = new ScreenShot(driver); 
-		// open the browser 
-		driver.get(baseUrl);
+		screenShot = new ScreenShot(driver);			
+		//Open the browser 
+		driver.get(baseUrl);			
 	}
 	
 	@AfterClass
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
-		driver.quit();
+		//driver.quit();
 	}
 	
 	@Test
-	public void validLoginTest() {		
-		loginPOM.sendUserName("admin");
-		loginPOM.sendPassword("admin@123");
-		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("Login");
-		AddClassesPOM.classesclick();
-		AddClassesPOM.AddClassesPOM();		
-		screenShot.captureScreenShot("AddClasses");			
-		AddClassesPOM.studentname("Demo");
-		AddClassesPOM.Description_classes("Demo");
-		AddClassesPOM.openclass();
-		screenShot.captureScreenShot("Selectopen");	
-		AddClassesPOM.opendropdown();
-		//screenShot.captureScreenShot("Added");	
-		AddClassesPOM.usergroup_submit();
-		screenShot.captureScreenShot("Final");	
-		
-}
+	public void validLoginTest() throws InterruptedException {			
+				loginPOM.sendUserName("manzoor");
+				loginPOM.sendPassword("manzoor");
+				loginPOM.clickLoginBtn(); 
+				screenShot.captureScreenShot("loginmanzoor");
+				AssignmentselectPOM.selectcourse();
+				Thread.sleep(2000);
+				ReportingPOM.reporting();	
+				ReportingPOM.priyasst();
+				ReportingPOM.testcorrect();
+				screenShot.captureScreenShot("correct");
+				AssignmentselectPOM.send_notification();
+				AssignmentselectPOM.formemailsubmit();
+				screenShot.captureScreenShot("EmailSent");	
+				
+			}
 }

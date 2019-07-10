@@ -29,7 +29,7 @@ public class ELearningDAO {
 	
 	public List<LoginBean> getLogins(){
 		String sql = properties.getProperty("get.logins"); 
-		
+		//to fetch values from db
 		GetConnection gc  = new GetConnection(); 
 		List<LoginBean> list = null;
 		try {
